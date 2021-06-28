@@ -1,9 +1,12 @@
-package ws.worldshine.weatherapp.data.network
+package ws.worldshine.weatherapp.data.db
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import ws.worldshine.weatherapp.core.BaseWeatherModel
 
-data class WeatherModel(
-    override val zipCode: Int,
+@Entity(tableName = "cache")
+data class CacheModel(
+    @PrimaryKey override val zipCode: Int,
     override val name: String,
     override val temperature: Double,
     override val humidity: Double,

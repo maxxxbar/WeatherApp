@@ -11,4 +11,8 @@ public class MainFragmentViewModel extends ViewModel {
         this.weatherRepository = weatherRepository;
     }
 
+    public void fetchWeather(int zipCode) {
+        weatherRepository.load(zipCode);
+    }
+
 }

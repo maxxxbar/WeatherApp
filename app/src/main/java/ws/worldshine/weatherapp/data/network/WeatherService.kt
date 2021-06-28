@@ -10,5 +10,5 @@ interface WeatherService {
     }
 
     @GET("weather?&appid=$API_KEY")
-    suspend fun fetchWeather(@Query("zip") zipCode: Int): WeatherZipModel
+    suspend fun fetchWeather(@Query("zip") zipCode: Int): WeatherNetworkModel
 }
