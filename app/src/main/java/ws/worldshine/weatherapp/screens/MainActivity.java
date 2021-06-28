@@ -1,8 +1,10 @@
-package ws.worldshine.weatherapp;
+package ws.worldshine.weatherapp.screens;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import ws.worldshine.weatherapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
