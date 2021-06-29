@@ -101,10 +101,10 @@ data class Sys(
     val country: String,
 
     @field:SerializedName("sunrise")
-    val sunrise: Int,
+    val sunrise: Long,
 
     @field:SerializedName("sunset")
-    val sunset: Int,
+    val sunset: Long,
 
     @field:SerializedName("id")
     val id: Int,

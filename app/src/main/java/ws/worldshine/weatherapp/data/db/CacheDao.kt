@@ -12,6 +12,6 @@ interface CacheDao {
     suspend fun insertWeatherItem(weatherDaoModel: CacheModel)
 
     @Query("SELECT * FROM cache WHERE zipCode =:zipCode")
-    suspend fun getCacheItem(zipCode: Int): CacheModel?
+    suspend fun getCacheItem(zipCode: String): CacheModel?
 
 }

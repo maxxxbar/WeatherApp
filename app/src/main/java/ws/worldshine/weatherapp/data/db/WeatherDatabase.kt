@@ -9,5 +9,7 @@ import androidx.room.RoomDatabase
     exportSchema = false
 )
 abstract class WeatherDatabase : RoomDatabase() {
+
     abstract val weatherDao: CacheDao
+
 }

@@ -4,24 +4,25 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ws.worldshine.weatherapp.core.BaseCacheDataSource
 import ws.worldshine.weatherapp.core.BaseWeatherModel
+import ws.worldshine.weatherapp.core.NoCacheException
 import ws.worldshine.weatherapp.core.Result
 
 class CacheDataSource(private val cacheDao: CacheDao) : BaseCacheDataSource {
-    override suspend fun set(baseWeatherModel: BaseWeatherModel) {
-        cacheDao.insertWeatherItem(baseModelToCacheModel(baseWeatherModel))
-    }
 
-    override suspend fun get(zipCode: Int): Result<BaseWeatherModel?, Exception> =
+    override suspend fun set(baseWeatherModel: BaseWeatherModel) =
+        cacheDao.insertWeatherItem(baseModelToCacheModel(baseWeatherModel))
+
+    override suspend fun get(zipCode: String): Result<BaseWeatherModel, Exception> =
         withContext(Dispatchers.IO) {
             val item = cacheDao.getCacheItem(zipCode)
             return@withContext if (item == null) {
-                Result.Error(NullPointerException())
+                Result.Error(NoCacheException())
             } else {
                 Result.Success(item)
             }
         }
 
-    private fun baseModelToCacheModel(baseWeatherModel: BaseWeatherModel): CacheModel =
+    private fun baseModelToCacheModel(baseWeatherModel: BaseWeatherModel) =
         CacheModel(
             zipCode = baseWeatherModel.zipCode,
             name = baseWeatherModel.name,
@@ -32,4 +33,5 @@ class CacheDataSource(private val cacheDao: CacheDao) : BaseCacheDataSource {
             sunrise = baseWeatherModel.sunrise,
             sunset = baseWeatherModel.sunset
         )
+
 }

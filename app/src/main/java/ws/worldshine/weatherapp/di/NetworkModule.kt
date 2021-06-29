@@ -15,10 +15,7 @@ val networkModule = module {
     single { provideRetrofit(get(), get()) }
 }
 
-fun provideRetrofit(
-    okHttpClient: OkHttpClient,
-    gsonConverterFactory: GsonConverterFactory
-): Retrofit =
+fun provideRetrofit(okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory): Retrofit =
     Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(okHttpClient)
