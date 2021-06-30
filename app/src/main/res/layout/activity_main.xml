@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".screens.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/fragmentContainerView"
         android:name="ws.worldshine.weatherapp.screens.main.MainFragment"
         android:layout_width="0dp"

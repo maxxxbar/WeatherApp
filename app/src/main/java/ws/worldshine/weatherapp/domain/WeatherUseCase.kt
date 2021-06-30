@@ -7,14 +7,18 @@ import ws.worldshine.weatherapp.core.WeatherRepository
 
 class WeatherUseCase(
     private val weatherRepository: WeatherRepository,
-    private val failure: Failure) {
+    private val failure: Failure
+) {
 
     suspend fun fetchWeather(zipCode: String): WeatherUiModel {
         return when (val result = weatherRepository.load(zipCode)) {
             is Result.Success -> {
                 when (result.data.second) {
                     null -> WeatherUiModel.Success(result.data.first, "")
-                    is ServiceUnavailableException -> WeatherUiModel.Success(result.data.first, failure.getMessage(result.data.second))
+                    is ServiceUnavailableException -> WeatherUiModel.Success(
+                        result.data.first,
+                        failure.getMessage(result.data.second)
+                    )
                     else -> WeatherUiModel.Success(result.data.first, failure.getMessage(result.data.second))
                 }
             }

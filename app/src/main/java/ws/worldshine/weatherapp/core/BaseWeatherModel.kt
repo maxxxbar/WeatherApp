@@ -4,10 +4,10 @@ interface BaseWeatherModel {
 
     val zipCode: String
     val name: String
-    val temperature: Double
-    val humidity: Double
-    val windSpeed: Double
-    val visibility: Int
+    val temperature: String
+    val humidity: String
+    val windSpeed: String
+    val visibility: String
     val sunrise: String
     val sunset: String
 

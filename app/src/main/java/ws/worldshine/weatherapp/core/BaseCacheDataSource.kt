@@ -6,4 +6,5 @@ interface BaseCacheDataSource {
 
 
     suspend fun set(baseWeatherModel: BaseWeatherModel)
+
 }

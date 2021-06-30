@@ -11,6 +11,7 @@ import static ws.worldshine.weatherapp.di.DatabaseModuleKt.getDatabaseModule;
 import static ws.worldshine.weatherapp.di.NetworkModuleKt.getNetworkModule;
 
 public class App extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,4 +21,5 @@ public class App extends Application {
                         getDatabaseModule());
         startKoin(koin);
     }
+
 }

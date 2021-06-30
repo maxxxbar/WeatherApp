@@ -20,15 +20,15 @@ class NetworkDataSource(private val service: WeatherService) : BaseDataSource {
 
     private suspend fun fetchWeather(
         zipCode: String
-    ): WeatherModel {
+    ): NetworkWeatherModel {
         val result = service.fetchWeather(zipCode)
-        return WeatherModel(
+        return NetworkWeatherModel(
             zipCode = zipCode,
             name = result.name,
-            temperature = result.main.temp,
-            humidity = result.main.humidity,
-            windSpeed = result.wind.speed,
-            visibility = result.visibility,
+            temperature = result.main.temp.toString(),
+            humidity = result.main.humidity.toString(),
+            windSpeed = result.wind.speed.toString(),
+            visibility = result.visibility.toString(),
             sunrise = result.sys.sunrise.toFormatDateTime(),
             sunset = result.sys.sunset.toFormatDateTime()
         )

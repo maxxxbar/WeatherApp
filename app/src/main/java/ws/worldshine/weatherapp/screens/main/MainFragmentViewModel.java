@@ -1,7 +1,5 @@
 package ws.worldshine.weatherapp.screens.main;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -17,8 +15,6 @@ import ws.worldshine.weatherapp.domain.WeatherUseCase;
 
 public class MainFragmentViewModel extends ViewModel {
     private final WeatherUseCase weatherUseCase;
-    private final String TAG = getClass().getSimpleName();
-
     private final MutableLiveData<BaseWeatherModel> weatherData = new MutableLiveData<>();
     private final MutableLiveData<String> errorData = new MutableLiveData<>();
 
@@ -40,7 +36,6 @@ public class MainFragmentViewModel extends ViewModel {
 
             @Override
             public void resumeWith(@NotNull Object o) {
-                Log.d(TAG, "resumeWith: " + o);
                 if (o instanceof WeatherUiModel.Success) {
                     BaseWeatherModel weather = (BaseWeatherModel) ((WeatherUiModel.Success<?, ?>) o).getData();
                     String error = (String) ((WeatherUiModel.Success<?, ?>) o).getError();
