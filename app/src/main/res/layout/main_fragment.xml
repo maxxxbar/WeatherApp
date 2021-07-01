@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".screens.main.MainFragment">
+
+        <LinearLayout
+            android:id="@+id/ll_zip_ode_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/ll_zip_code_text"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_search_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/main_fragment_title_search_by_zip_code" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxBackgroundColor="@android:color/darker_gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_zip_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/main_fragment_hint_edit_text_zip_code"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_zip_code_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_get_weather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/main_fragment_title_btn_get_weather" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_zip_ode_search" />
+
+        <TextView
+            android:id="@+id/tv_description_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_location"
+            tools:text="Boston" />
+
+        <TextView
+            android:id="@+id/tv_title_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_temperature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_location" />
+
+        <TextView
+            android:id="@+id/tv_description_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_temperature"
+            tools:text="66.66 F" />
+
+        <TextView
+            android:id="@+id/tv_title_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_wind_speed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_temperature" />
+
+        <TextView
+            android:id="@+id/tv_description_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_wind_speed"
+            tools:text="66.66 F" />
+
+        <TextView
+            android:id="@+id/tv_title_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_humidity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_wind_speed" />
+
+        <TextView
+            android:id="@+id/tv_description_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_humidity"
+            tools:text="77 %" />
+
+        <TextView
+            android:id="@+id/tv_title_visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_visibility"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_humidity" />
+
+        <TextView
+            android:id="@+id/tv_description_visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_visibility"
+            tools:text="Clear" />
+
+        <TextView
+            android:id="@+id/tv_title_sunrise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_sunrise"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_visibility" />
+
+        <TextView
+            android:id="@+id/tv_description_sunrise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_sunrise"
+            tools:text="06/30/2021 09:10:45 AM" />
+
+        <TextView
+            android:id="@+id/tv_title_sunset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_10_dp"
+            android:layout_marginTop="@dimen/margin_top_20_dp"
+            android:text="@string/main_fragment_title_tv_sunset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_sunrise" />
+
+        <TextView
+            android:id="@+id/tv_description_sunset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_20_dp"
+            android:layout_marginTop="@dimen/margin_top_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_sunset"
+            tools:text="07/01/2021 12:24:57 AM" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
